@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    input_val: "",
   },
 
   /**
@@ -95,11 +95,11 @@ Page({
             //插入数据库
             db.collection('mybook').add({
                 // data 字段表示需新增的 JSON 数据
-              data: JSON.parse(bookString)
+                data: JSON.parse(bookString)
               })
               .then(res => {
                 console.log(res)
-              }).catch(err =>{
+              }).catch(err => {
                 console.log(err)
               })
 
@@ -113,5 +113,43 @@ Page({
         console.log(err)
       }
     })
-  }
+  },
+  /*
+   *输入isbn添加图书
+   */
+  formSubmit: function(event) {
+    wx.cloud.callFunction({
+      //云函数名字
+      name:'addbook',
+      //传给云函数的参数
+      data:{
+        isbn: event.detail.value.input
+      },
+      success: res => {
+        var bookString = res.result;
+        console.log(JSON.parse(res.result)) // 3
+
+        //获取数据库的引用
+        const db = wx.cloud.database()
+
+        // 初始化数据库
+        const books = db.collection('mybook');
+
+        //插入数据库
+        db.collection('mybook').add({
+          // data 字段表示需新增的 JSON 数据
+          data: JSON.parse(bookString)
+        })
+          .then(res => {
+            console.log(res)
+          }).catch(err => {
+            console.log(err)
+          })
+
+      },
+      fail:err=>{
+
+      }
+    })
+  },
 })

@@ -1,4 +1,4 @@
-<view wx:for="{{booklist}}" wx:key="{{item}}">
+<view wx:for="{{booklist}}" wx:key="{{item}}" class='box-list'>
   <van-card price="{{item.price}}" desc="{{item.author}}" title="{{item.title}}" thumb="{{item.image}}">
     <view slot="tags">
       <block wx:for="{{item.tags}}" wx:for-item="tag">

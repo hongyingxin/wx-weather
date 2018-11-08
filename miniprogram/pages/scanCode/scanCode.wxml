@@ -3,3 +3,11 @@
     <van-button type="primary" bind:click="scancode">扫码加书</van-button>
   </van-col>
 </van-row>
+
+<form bindsubmit="formSubmit">
+  <view class="section">
+    <input name="input" placeholder="输入ISBN码添加图书" class='input-box' />
+  </view>
+
+  <button type='primary' class='button-box' form-type='submit'>确定</button>
+</form>

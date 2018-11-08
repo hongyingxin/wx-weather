@@ -1,6 +1,7 @@
 {
   "cloud": true,
   "pages": [
+    "pages/center/center",
     "pages/index/index",
     "pages/scanCode/scanCode"
   ],
