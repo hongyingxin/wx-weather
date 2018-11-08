@@ -1,0 +1,9 @@
+<view wx:for="{{booklist}}" wx:key="{{item}}">
+  <van-card price="{{item.price}}" desc="{{item.author}}" title="{{item.title}}" thumb="{{item.image}}">
+    <view slot="tags">
+      <block wx:for="{{item.tags}}" wx:for-item="tag">
+        <van-tag size="medium" plain type="primary" class="vantag">{{tag.name}}</van-tag>
+      </block>
+    </view>
+  </van-card>
+</view>

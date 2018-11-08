@@ -1,0 +1,4 @@
+.vantag{
+  display: inline-block;
+  margin: 5rpx;
+}
