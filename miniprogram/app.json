@@ -13,12 +13,25 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "我的藏书"
-    },{
-      "pagePath": "pages/scanCode/scanCode",
-      "text": "扫码加书"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的藏书",
+        "iconPath": "images/book.png",
+        "selectedIconPath": "images/book-activite.png"
+      },
+      {
+        "pagePath": "pages/scanCode/scanCode",
+        "text": "扫码加书",
+        "iconPath": "images/add.png",
+        "selectedIconPath": "images/add-activite.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "个人中心",
+        "iconPath": "images/center.png",
+        "selectedIconPath": "images/center-activite.png"
+      }
+    ]
   }
 }
