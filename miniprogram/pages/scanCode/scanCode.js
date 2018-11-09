@@ -127,7 +127,9 @@ Page({
       },
       success: res => {
         var bookString = res.result;
-        console.log(JSON.parse(res.result)) // 3
+        console.log("云函数打印内容")
+        console.log(res)
+        console.log(typeof(res.result)) // 3
 
         //获取数据库的引用
         const db = wx.cloud.database()

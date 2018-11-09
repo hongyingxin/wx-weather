@@ -33,5 +33,6 @@
         "selectedIconPath": "images/center-activite.png"
       }
     ]
-  }
+  },
+  "debug":true
 }
