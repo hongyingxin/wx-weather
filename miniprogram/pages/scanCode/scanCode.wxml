@@ -1,6 +1,6 @@
 <van-row gutter="20">
-  <van-col span="8" offset="8">
-    <van-button type="primary" bind:click="scancode">扫码加书</van-button>
+  <van-col span="8" offset="8"> 
+    <van-button type="primary" bind:click="scancode" >扫码加书</van-button>
   </van-col>
 </van-row>
 
