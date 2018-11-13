@@ -19,6 +19,7 @@ Page({
       this.setData({
         booklist:res.data
       })
+      console.log("++++++++++++++++++")
       console.log(res.data)
     }).catch(err=>{
       console.log(err)

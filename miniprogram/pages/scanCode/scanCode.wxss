@@ -1,27 +1,4 @@
-.section{
-  width: 700rpx;
-  height: 80rpx;
-  margin: 0 auto;
-  margin-top: 20rpx;
-  border: 1px solid #B3EE3A;
-  border-radius: 20rpx;
-  display: flex;
-  align-items: center;
-}
-.input-box{
-  position: relative;
-  width: 100%;
-  font-size: 24rpx;
-  color: e3e3e3;
-  box-sizing: border-box;
-  padding-left: 40rpx;
-}
-.button-box{
-  position: absolute;
-  width: 160rpx;
-  height: 80rpx;
-  border-radius: 20rpx;
-  top: 18%;
-  left: 50%;
-  transform: translateX(-50%);
+.test{
+  width: 100rpx;
+  height: 100rpx;
 }

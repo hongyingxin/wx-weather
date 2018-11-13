@@ -1,16 +1,25 @@
+const db = wx.cloud.database()
+const todos = db.collection('banner')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    input_val: "",
+    banner:[],
+    indicatorDots: false,
+    autoplay: false,
+    interval: 5000,
+    duration: 1000
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    this.database_init();
 
   },
 
@@ -63,95 +72,31 @@ Page({
 
   },
 
-
   /*
-   *点击扫码增加图书
-   */
-  scancode: function(res) {
+  * 
+  */
+  database_init: function(){
 
-    wx.scanCode({
-      onlyFromCamera: true,
-      scanType: ['barCode'],
-      success: res => {
-        console.log(res)
+    db.collection('banner').get().then(res => {
+      // res.data 包含该记录的数据
+      // this.setData({
+      // booklist: res.data
+      // })
+      console.log(res.data)
 
-        wx.cloud.callFunction({
-          // 云函数名称
-          name: 'bookinfo',
-          // 传给云函数的参数
-          data: {
-            isbn: res.result
-          },
-          success: res => {
-            var bookString = res.result;
-            console.log(JSON.parse(res.result)) // 3
+      var arr = [];
+      var one = res.data.slice(0,3);
+      var two = res.data.slice(3,6);
+      var three = res.data.slice(6,9);
+      arr.push(one,two,three);
+      console.log(arr)
+      this.setData({
+        banner: arr
+      })
 
-            //获取数据库的引用
-            const db = wx.cloud.database()
-
-            // 初始化数据库
-            const books = db.collection('mybook');
-
-            //插入数据库
-            db.collection('mybook').add({
-                // data 字段表示需新增的 JSON 数据
-                data: JSON.parse(bookString)
-              })
-              .then(res => {
-                console.log(res)
-              }).catch(err => {
-                console.log(err)
-              })
-
-          },
-          fail: error => {
-            console.log(error)
-          }
-        })
-      },
-      fail: err => {
-        console.log(err)
-      }
+    }).catch(err => {
+      console.log(err)
     })
   },
-  /*
-   *输入isbn添加图书
-   */
-  formSubmit: function(event) {
-    wx.cloud.callFunction({
-      //云函数名字
-      name:'addbook',
-      //传给云函数的参数
-      data:{
-        isbn: event.detail.value.input
-      },
-      success: res => {
-        var bookString = res.result;
-        console.log("云函数打印内容")
-        console.log(res)
-        console.log(typeof(res.result)) // 3
 
-        //获取数据库的引用
-        const db = wx.cloud.database()
-
-        // 初始化数据库
-        const books = db.collection('mybook');
-
-        //插入数据库
-        db.collection('mybook').add({
-          // data 字段表示需新增的 JSON 数据
-          data: JSON.parse(bookString)
-        })
-          .then(res => {
-            console.log(res)
-          }).catch(err => {
-            console.log(err)
-          })
-
-      },
-      fail:err=>{
-
-      }
-    })
-  },
 })
