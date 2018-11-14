@@ -1,3 +1,5 @@
+import Toast from '../../dist/toast/toast';
+
 Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -175,6 +177,7 @@ Page({
    */
   formSubmit: function (event) {
     if(event.detail.value.input ==""){
+      Toast('请输入ISBN码');
       return;
     }
     wx.cloud.callFunction({

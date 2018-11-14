@@ -28,18 +28,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
 					"name": "db guide",
 					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "扫码加书",
-					"pathName": "pages/scanCode/scanCode",
 					"query": ""
 				},
 				{
@@ -51,7 +45,8 @@
 				{
 					"id": -1,
 					"name": "我的藏书",
-					"pathName": "pages/index/index"
+					"pathName": "pages/index/index",
+					"query": ""
 				}
 			]
 		}

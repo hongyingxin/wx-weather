@@ -40,3 +40,4 @@
 
   <button class='button-box' form-type='submit'>确定</button>
 </form>
+<van-toast id="van-toast" />
