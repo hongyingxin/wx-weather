@@ -14,15 +14,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    db.collection('mybook').get().then(res => {
-      // res.data 包含该记录的数据
-      this.setData({
-        booklist:res.data
-      })
-      console.log("++++++++++++++++++")
-      console.log(res.data)
-    }).catch(err=>{
-      console.log(err)
+
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'person',
+      // 传给云函数的参数
+      // data: {
+      //   isbn: res.result
+      // },
+      success: res => {
+        console.log(res)
+        this.setData({
+          booklist: res.result.data
+        })
+      },
+      fail: error => {
+        console.log(error)
+      }
     })
   },
 

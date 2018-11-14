@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -45,7 +45,13 @@
 				{
 					"id": -1,
 					"name": "首页",
-					"pathName": "pages/scanCode/scanCode"
+					"pathName": "pages/scanCode/scanCode",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的藏书",
+					"pathName": "pages/index/index"
 				}
 			]
 		}

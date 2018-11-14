@@ -2,7 +2,7 @@
   <van-card price="{{item.price}}" desc="{{item.author}}" title="{{item.title}}" thumb="{{item.image}}">
     <view slot="tags">
       <block wx:for="{{item.tags}}" wx:for-item="tag" wx:for-index="id">
-        <block wx:if="{{id < 5}}">
+        <block wx:if="{{id < 4}}">
         <van-tag size="medium" plain type="primary" class="vantag">{{tag.name}}</van-tag>
         </block>
       </block>

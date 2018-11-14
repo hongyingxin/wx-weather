@@ -1,12 +1,36 @@
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#00CED1" class='swiper-box'>
   <block wx:for="{{banner}}">
     <swiper-item>
       <block wx:for="{{item}}" wx:for-item="child">
-        <view>
-          <image src='{{child.image}}'></image>
+        <view class="swiper-child">
+          <image src='{{child.images.small}}' class="swiper-img"></image>
         </view>
       </block>
     </swiper-item>
   </block>
 </swiper>
+
+<view class='book-list'>
+  <block wx:for="{{bookList}}"  wx:key="item">
+
+    <view class='book-box'>
+      <view class='book-left'>
+        <image src="{{item.images.small}}" class='book-left-img'></image>
+      </view>
+      <view class='book-conter'>
+        <view class='book-title-one'>{{item.title}}</view>
+        <view class='book-title-two'>{{item.author}}</view>
+        <view class='book-title-two'>{{item.publisher}}</view>
+      </view>
+      <view class='book-right'>
+        <view class='rating'>豆瓣评分
+            <text wx:if="{{item.rating.average == 0 }}" class='empty-rat'>暂无</text>
+            <text wx:else class='all-rat'>{{item.rating.average}}</text>
+        </view>
+        <view class='rating-box'>{{item.rating.numRaters}}人评价</view>
+      </view>
+    </view>
+
+  </block>
+
+</view>

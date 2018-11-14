@@ -194,10 +194,10 @@ Page({
         const db = wx.cloud.database()
 
         // 初始化数据库
-        const books = db.collection('banner');
+        const books = db.collection('mybook');
 
         //插入数据库
-        db.collection('banner').add({
+        db.collection('mybook').add({
           // data 字段表示需新增的 JSON 数据
           data: JSON.parse(bookString)
         })
