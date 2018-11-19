@@ -130,6 +130,9 @@ Page({
       onlyFromCamera: true,
       scanType: ['barCode'],
       success: res => {
+        wx.showLoading({
+          title: '添加图书中...',
+        })
         console.log(res)
 
         wx.cloud.callFunction({
@@ -140,25 +143,33 @@ Page({
             isbn: res.result
           },
           success: res => {
-            var bookString = res.result;
-            console.log(JSON.parse(res.result)) // 3
+            if (res.result == "查无图书"){
+              wx.hideLoading();
+              Toast.fail('查无图书');
+            }else{
+              var bookString = res.result;
+              console.log(res)
+              console.log(JSON.parse(res.result)) // 3
 
-            //获取数据库的引用
-            const db = wx.cloud.database()
+              //获取数据库的引用
+              const db = wx.cloud.database()
 
-            // 初始化数据库
-            const books = db.collection('mybook');
+              // 初始化数据库
+              const books = db.collection('mybook');
 
-            //插入数据库
-            db.collection('mybook').add({
-              // data 字段表示需新增的 JSON 数据
-              data: JSON.parse(bookString)
-            })
-              .then(res => {
-                console.log(res)
-              }).catch(err => {
-                console.log(err)
+              //插入数据库
+              db.collection('mybook').add({
+                // data 字段表示需新增的 JSON 数据
+                data: JSON.parse(bookString)
               })
+                .then(res => {
+                  wx.hideLoading();
+                  Toast.success('添加成功');
+                  console.log(res)
+                }).catch(err => {
+                  console.log(err)
+                })
+            }
 
           },
           fail: error => {
@@ -167,6 +178,7 @@ Page({
         })
       },
       fail: err => {
+        Toast.fail('扫码失败');
         console.log(err)
       }
     })
@@ -180,6 +192,9 @@ Page({
       Toast('请输入ISBN码');
       return;
     }
+    wx.showLoading({
+      title: '添加图书中...',
+    })
     wx.cloud.callFunction({
       //云函数名字
       name: 'addbook',
@@ -188,28 +203,34 @@ Page({
         isbn: event.detail.value.input
       },
       success: res => {
-        var bookString = res.result;
-        console.log("云函数打印内容")
-        console.log(res)
-        console.log(typeof (res.result)) // 3
+        if (res.result == "查无图书") {
+          wx.hideLoading();
+          Toast.fail('查无图书');
+        }else{
+          var bookString = res.result;
+          console.log("云函数打印内容")
+          console.log(res)
 
-        //获取数据库的引用
-        const db = wx.cloud.database()
+          //获取数据库的引用
+          const db = wx.cloud.database()
 
-        // 初始化数据库
-        const books = db.collection('mybook');
+          // 初始化数据库
+          const books = db.collection('mybook');
 
-        //插入数据库
-        db.collection('mybook').add({
-          // data 字段表示需新增的 JSON 数据
-          data: JSON.parse(bookString)
-        })
-          .then(res => {
-            console.log(res)
-          }).catch(err => {
-            console.log(err)
+          //插入数据库
+          db.collection('mybook').add({
+            // data 字段表示需新增的 JSON 数据
+            data: JSON.parse(bookString)
           })
-
+            .then(res => {
+              wx.hideLoading();
+              Toast.success('添加成功');
+              console.log(res)
+            }).catch(err => {
+              console.log(err)
+            })
+        }
+      
       },
       fail: err => {
 

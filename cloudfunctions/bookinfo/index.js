@@ -10,6 +10,7 @@ exports.main = async(event, context) => {
     return html;
     console.log(html)
   }).catch(err => {
+    return "查无图书";
     console.log(err)
   })
   return res;

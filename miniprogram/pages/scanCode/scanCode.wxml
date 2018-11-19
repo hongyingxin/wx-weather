@@ -13,7 +13,7 @@
 <view class='book-list'>
   <block wx:for="{{bookList}}"  wx:key="item">
 
-    <view class='book-box'>
+    <view class='book-box' bindtap="intodetail" data-id="{{item._id}}">
       <view class='book-left'>
         <image src="{{item.images.small}}" class='book-left-img'></image>
       </view>

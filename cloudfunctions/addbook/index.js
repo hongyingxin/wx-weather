@@ -10,11 +10,8 @@ exports.main = async (event, context) => {
     return html;
     console.log(html)
   }).catch(err => {
+    return "查无图书"
     console.log(err)
   });
-  // 这里获取到的 openId、 appId 和 unionId 是可信的，注意 unionId 仅在满足 unionId 获取条件时返回
-  let { OPENID, APPID } = cloud.getWXContext();
-  console.log("+++++++++++++")
-  console.log(res);
-  return res;
+
 }

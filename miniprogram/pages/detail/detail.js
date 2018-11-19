@@ -1,40 +1,32 @@
 const db = wx.cloud.database()
-const todos = db.collection('mybook')
 
+// pages/detail/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    booklist:[]
+    book_detail:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    wx.showLoading({
-      title: '数据加载中',
-    })
-    wx.cloud.callFunction({
-      // 云函数名称
-      name: 'person',
-      // 传给云函数的参数
-      // data: {
-      //   isbn: res.result
-      // },
-      success: res => {
-        console.log(res)
+    var id = options.id;
+    console.log(options)
+    db.collection('mybook').where({
+        _id: id
+      })
+      .get().then(res => {
         this.setData({
-          booklist: res.result.data
+          book_detail:res.data
         })
-        wx.hideLoading()
-      },
-      fail: error => {
-        console.log(error)
-      }
-    })
+        console.log(res)
+      }).catch(err => {
+        console.log(err)
+      })
   },
 
   /**

@@ -1,0 +1,4 @@
+<!--pages/detail/detail.wxml-->
+<view class="book-bg" style="background-image: url('https://img3.doubanio.com/view/subject/m/public/s11150396.jpg');">
+
+</view>

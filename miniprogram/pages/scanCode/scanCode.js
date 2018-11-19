@@ -124,6 +124,17 @@ Page({
       console.log(err)
     })
 
+  },
+
+  intodetail:function(event){
+    var _id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../detail/detail?id=${_id}`
+    })
+    // wx.navigateTo({
+      // url: `../cxcommp/cxcommp?id=${id}&cx=${cx}&jg=${jg}&kc=${kc}&activityid=${activityID}`
+    // })
+    console.log(event.currentTarget.dataset.id)
   }
 
 })

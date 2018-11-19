@@ -3,7 +3,8 @@
   "pages": [
     "pages/center/center",
     "pages/index/index",
-    "pages/scanCode/scanCode"
+    "pages/scanCode/scanCode",
+    "pages/detail/detail"
   ],
   "window": {
     "enablePullDownRefresh": true,
