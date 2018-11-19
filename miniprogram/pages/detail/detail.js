@@ -21,7 +21,7 @@ Page({
       })
       .get().then(res => {
         this.setData({
-          book_detail:res.data
+          book_detail:res.data[0]
         })
         console.log(res)
       }).catch(err => {

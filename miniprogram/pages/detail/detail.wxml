@@ -1,4 +1,8 @@
 <!--pages/detail/detail.wxml-->
-<view class="book-bg" style="background-image: url('https://img3.doubanio.com/view/subject/m/public/s11150396.jpg');">
-
+<view class="bg" style="background-image: url('{{book_detail.image}}');">
+  <view class='bg-box'>
+    <image src='{{book_detail.images.small}}' class='bg-image' class='bg-image'></image>
+    <view class='title'>{{book_detail.title}}</view>
+    <view class='author'>{{book_detail.author}}</view>
+  </view>
 </view>
