@@ -6,3 +6,56 @@
     <view class='author'>{{book_detail.author}}</view>
   </view>
 </view>
+
+<!-- 内容start -->
+<view class='message'>
+  <view class='message-title'>
+    <text class='message-left'>作者:</text>
+    <text class='message-right'>{{book_detail.author}}</text>
+  </view>
+  <view class='message-title'>
+    <text class='message-left'>出版社:</text>
+    <text class='message-right'>{{book_detail.publisher}}</text>
+  </view>
+  <view wx:if="{{book_detail.origin_title}}" class='message-title'>
+    <text class='message-left'>原作名:</text>
+    <text class='message-right'>{{book_detail.origin_title}}</text>
+  </view>
+  <view class='message-title'>
+    <text class='message-left'>出版年: </text>
+    <text class='message-right'>{{book_detail.pubdate}}</text>
+  </view>
+  <view class='message-title'>
+    <text class='message-left'>页数:</text>
+    <text class='message-right'>{{book_detail.pages}}</text>
+  </view>
+  <view class='message-title'>
+    <text class='message-left'>定价:</text>
+    <text class='message-right'>{{book_detail.price}}</text>
+  </view>
+  <view class='message-title'>
+    <text class='message-left'>装帧:</text>
+    <text class='message-right'>{{book_detail.binding}}</text>
+  </view>
+  <view wx:if="{{book_detail.series.title}}" class='message-title'>
+    <text class='message-left'>丛书:</text>
+    <text class='message-right'>{{book_detail.series.title}}</text>
+  </view>
+  <view class='message-title'>
+    <text class='message-left'>ISBN:</text>
+    <text class='message-right'>{{book_detail.isbn13}}</text>
+  </view>
+</view>
+<!-- 内容end -->
+
+<!-- 标签start -->
+<view class='tag'>
+  <text class='tag-button'>大冰</text>
+  <text class='tag-button'>普通人不普通的故事</text>
+  <text class='tag-button'>冰叔</text>
+  <text class='tag-button'>故事</text>
+  <text class='tag-button'>江湖说书人</text>
+  <text class='tag-button'>畅销书</text>
+  <text class='tag-button'>真实</text>
+</view>
+<!-- 标签end -->

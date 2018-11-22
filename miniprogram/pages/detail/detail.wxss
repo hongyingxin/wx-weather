@@ -20,7 +20,7 @@
   background: inherit;
   filter: blur(5rpx);
   z-index: 2;
-  background-color: rgba(0, 0,0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   background-blend-mode: darken;
 }
 
@@ -52,4 +52,38 @@
   color: #fff;
   font-size: 24rpx;
   margin-top: 10rpx;
+}
+
+.message {
+  margin: 30rpx 20rpx 0rpx 20rpx;
+}
+
+.message-title {
+  font-size: 28rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.message-left {
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.message-right {
+  color: #111;
+}
+
+.tag {
+  margin: 20rpx 20rpx;
+}
+
+.tag-button {
+  display: inline-block;
+  font-size: 30rpx;
+  color: #4facfe;
+  padding: 8rpx;
+  border: 1px solid #4facfe;
+  border-radius: 10rpx;
+  margin-bottom: 10rpx;
+  margin-right: 10rpx;
 }
