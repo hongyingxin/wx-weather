@@ -23,19 +23,11 @@ Page({
         this.setData({
           book_detail:res.data[0]
         })
-        console.log(res)
+        // console.log(res)
+        console.log(this.data.book_detail)
       }).catch(err => {
         console.log(err)
       })
-
-      wx.request({
-        url: 'http://2.odinjack.applinzi.com/vue_music/php/getDisc.php',
-        success:function(res){
-          console.log("+++++")
-          console.log(res.data)
-        }
-      })
-
   },
 
   /**

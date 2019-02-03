@@ -67,7 +67,7 @@ Page({
     //现在时间
     var timerToday = new Date().getTime();;
     //目标时间
-    var timerBirthday = new Date("2018/1/1").getTime();
+    var timerBirthday = new Date("2019/1/1").getTime();
     //计算过去天数
     var dayNum = parseInt((timerToday - timerBirthday) / 1000 / 3600 / 24);
     var percentageNum = parseInt(dayNum / 365 * 100);

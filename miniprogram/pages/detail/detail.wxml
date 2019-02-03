@@ -50,12 +50,23 @@
 
 <!-- 标签start -->
 <view class='tag'>
-  <text class='tag-button'>大冰</text>
-  <text class='tag-button'>普通人不普通的故事</text>
-  <text class='tag-button'>冰叔</text>
-  <text class='tag-button'>故事</text>
-  <text class='tag-button'>江湖说书人</text>
-  <text class='tag-button'>畅销书</text>
-  <text class='tag-button'>真实</text>
+  <block wx:for="{{book_detail.tags}}" wx:for-item="tags" wx:for-index="id" wx:key="id">
+    <text class='tag-button'>{{tags.name}}</text>
+  </block>
 </view>
 <!-- 标签end -->
+
+<!-- 图书描述start -->
+<view class='summary'>
+  {{book_detail.summary}}
+</view>
+<!-- 图书描述end -->
+
+<!-- 转发给好友start -->
+<view class='share-button'>转发给好友</view>
+<!-- 转发给好友end -->
+
+
+<!-- 马上去评论start -->
+<view class='share-button'>马上去评论</view>
+<!-- 马上去评论end -->

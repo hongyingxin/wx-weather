@@ -87,3 +87,20 @@
   margin-bottom: 10rpx;
   margin-right: 10rpx;
 }
+.summary{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size: 32rpx;
+  line-height: 45rpx;
+}
+.share-button{
+  margin: 20rpx auto;
+  width: 80%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #ffffff;
+  background-color: #29bdd9;
+  border-radius: 40rpx
+}
