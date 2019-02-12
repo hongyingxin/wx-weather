@@ -63,7 +63,7 @@
 <!-- 图书描述end -->
 
 <!-- 转发给好友start -->
-<view class='share-button'>转发给好友</view>
+<button class='share-button' open-type='share'>转发给好友</button>
 <!-- 转发给好友end -->
 
 

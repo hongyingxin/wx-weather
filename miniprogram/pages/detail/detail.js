@@ -77,5 +77,9 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  share:function(){
+      console.log("www")
   }
 })
