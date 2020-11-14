@@ -28,7 +28,7 @@
   </view>
     </view>
   </view>
-  <view class="date-title">2018年已经过去<text class="title_red">{{now_date}}</text>天，<text class="title_red">{{percentage}}</text>%</view>
+  <view class="date-title">{{now_year}}年已经过去<text class="title_red">{{now_date}}</text>天，<text class="title_red">{{percentage}}</text>%</view>
 </view>
 
 <view class="scancode" bindtap="scancode">添加图书</view>

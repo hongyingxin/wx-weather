@@ -5,6 +5,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     percentage: 0,
     now_date: 0,
+    now_year: 0,
     count: 0, // 设置 计数器 初始为0
     countTimer: null, // 设置 定时器 初始为null
     step:0    //圆弧度 
@@ -65,15 +66,18 @@ Page({
   },
   nowDate: function () {
     //现在时间
-    var timerToday = new Date().getTime();;
+    const timerToday = new Date().getTime();
+    const now_year = new Date().getFullYear()
     //目标时间
-    var timerBirthday = new Date("2019/1/1").getTime();
+    const timerBirthday = new Date(`${new Date().getFullYear()}/1/1`).getTime()
+    console.log(timerBirthday)
     //计算过去天数
-    var dayNum = parseInt((timerToday - timerBirthday) / 1000 / 3600 / 24);
-    var percentageNum = parseInt(dayNum / 365 * 100);
+    const dayNum = parseInt((timerToday - timerBirthday) / 1000 / 3600 / 24);
+    const percentageNum = parseInt(dayNum / 365 * 100);
 
-    var stepNum = (dayNum / 362 * 2).toFixed(1);
+    const stepNum = (dayNum / 362 * 2).toFixed(1);
     this.setData({
+      now_year: now_year,
       now_date: dayNum,
       percentage: percentageNum,
       step:stepNum
@@ -111,12 +115,12 @@ Page({
   countInterval: function() {
     // 设置倒计时 定时器 每100毫秒执行一次，计数器count+1 ,耗时6秒绘一圈
     this.countTimer = setInterval(() => {
-      if (this.data.count <= 60) {
+      if (this.data.count <= 30) {
         /* 绘制彩色圆环进度条  
         注意此处 传参 step 取值范围是0到2，
         所以 计数器 最大值 60 对应 2 做处理，计数器count=60的时候step=2
         */
-        this.drawCircle(this.data.count / (60 / this.data.step))
+        this.drawCircle(this.data.count / (30 / this.data.step))
         this.data.count++;
       } else {
         clearInterval(this.countTimer);
